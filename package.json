@@ -1,0 +1,37 @@
+{
+  "name": "cherrybomb",
+  "version": "1.0.0",
+  "description": "A reconnaissance notes taking app for pentetration tester.",
+  "main": "main.js",
+  "scripts": {
+    "watch": "webpack --config webpack.config.js --watch",
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "sass",
+    "webpack"
+  ],
+  "author": "Vinay Verma",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^11.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "electron-reload": "^1.5.0",
+    "prettier": "2.2.1",
+    "sass": "^1.32.6",
+    "sass-loader": "^11.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.20.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
