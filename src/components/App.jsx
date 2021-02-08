@@ -1,12 +1,14 @@
-import React from "react"
+import React, { Component } from "react";
+import Drawer from "./Drawer";
 
-export default class App extends React.Component {
-
+class App extends Component {
 	render() {
 		return (
 			<>
-				<h1>Hello World!</h1>
+				<Drawer />
 			</>
-		)
+		);
 	}
 }
+
+export default App;

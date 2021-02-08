@@ -42,14 +42,14 @@ $faded_orange: #af3a03;
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background: $dark0_hard;
-		color: $light0_hard;
+		background: $dark0;
+		color: $light0_soft;
 	}
 }
 
 @media (prefers-color-scheme: light) {
 	body {
-		background: $light0_hard;
-		color: $dark0_hard;
+		background: $light0;
+		color: $dark0_soft;
 	}
 }

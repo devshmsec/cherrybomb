@@ -2,13 +2,13 @@ const path = require("path");
 
 module.exports = {
 	mode: "development",
-	entry: "./src/index.jsx",
+	entry: "./src/index.js",
 	devtool: "inline-source-map",
 	target: "electron-renderer",
 	module: {
 		rules: [
 			{
-				test: /\.jsx$/,
+				test: /\.js[x]?$/,
 				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
