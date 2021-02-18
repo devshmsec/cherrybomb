@@ -1,105 +1,79 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
-import TreeView from "@material-ui/lab/TreeView";
-import TreeItem from "@material-ui/lab/TreeItem";
-import Collapse from "@material-ui/core/Collapse";
-import { useSpring, animated } from "react-spring/web.cjs"; // web.cjs is required for IE 11 support
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import Divider from "@material-ui/core/Divider";
+import InboxIcon from "@material-ui/icons/Inbox";
+import DraftsIcon from "@material-ui/icons/Drafts";
 
-// icons
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import CancelIcon from "@material-ui/icons/Cancel";
-
-function TransitionComponent(props) {
-	const style = useSpring({
-		from: { opacity: 0, transform: "translate3d(20px,0,0)" },
-		to: {
-			opacity: props.in ? 1 : 0,
-			transform: `translate3d(${props.in ? 0 : 20}px,0,0)`,
-		},
-	});
-
-	return (
-		<animated.div style={style}>
-			<Collapse {...props} />
-		</animated.div>
-	);
-}
-
-TransitionComponent.propTypes = {
-	/**
-	 * Show the component; triggers the enter or exit states
-	 */
-	in: PropTypes.bool,
-};
-
-const StyledTreeItem = withStyles((theme) => ({
-	iconContainer: {
-		"& .close": {
-			opacity: 0.4,
-		},
-	},
-	group: {
-		marginLeft: 10,
-		paddingLeft: 20,
-	},
-}))((props) => (
-	<TreeItem {...props} TransitionComponent={TransitionComponent} />
-));
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	root: {
-		height: 364,
-		flexGrow: 1,
-		maxWidth: 400,
-		margin: 4,
-		padding: 4,
-		paddingTop: 20,
+		width: "100%",
+		maxWidth: 360,
+		backgroundColor: theme.palette.background.paper,
 	},
-});
+}));
 
-let treeNodes = {
-	id: "root",
-	name: "Parent",
-	children: [
-		{
-			id: "1",
-			name: "Child - 1",
-		},
-		{
-			id: "3",
-			name: "Child - 3",
-			children: [
-				{
-					id: "4",
-					name: "Child - 4",
-				},
-			],
-		},
-	],
-};
-
-const renderTree = (nodes) => (
-	<StyledTreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-		{Array.isArray(nodes.children)
-			? nodes.children.map((node) => renderTree(node))
-			: null}
-	</StyledTreeItem>
-);
-
-export default function CustomizedTreeView() {
+export default function SelectedListItem() {
 	const classes = useStyles();
+	const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+	const handleListItemClick = (event, index) => {
+		setSelectedIndex(index);
+	};
 
 	return (
-		<TreeView
-			className={classes.root}
-			defaultExpanded={["2"]}
-			defaultCollapseIcon={<ExpandLessIcon />}
-			defaultExpandIcon={<ExpandMoreIcon />}
-			defaultEndIcon={<CancelIcon />}
-		>
-			{renderTree(treeNodes)}
-		</TreeView>
+		<div className={classes.root}>
+			<List
+				component="nav"
+				aria-label="main mailbox folders"
+				subheader={
+					<ListSubheader component="div" id="nested-list-subheader">
+						Project Name
+					</ListSubheader>
+				}
+			>
+				<ListItem
+					button
+					selected={selectedIndex === 0}
+					onClick={(event) => handleListItemClick(event, 0)}
+				>
+					<ListItemIcon>
+						<InboxIcon />
+					</ListItemIcon>
+					<ListItemText primary="Inbox" />
+				</ListItem>
+				<ListItem
+					button
+					selected={selectedIndex === 1}
+					onClick={(event) => handleListItemClick(event, 1)}
+				>
+					<ListItemIcon>
+						<DraftsIcon />
+					</ListItemIcon>
+					<ListItemText primary="Drafts" />
+				</ListItem>
+			</List>
+			<Divider />
+			<List component="nav" aria-label="secondary mailbox folder">
+				<ListItem
+					button
+					selected={selectedIndex === 2}
+					onClick={(event) => handleListItemClick(event, 2)}
+				>
+					<ListItemText primary="Trash" />
+				</ListItem>
+				<ListItem
+					button
+					selected={selectedIndex === 3}
+					onClick={(event) => handleListItemClick(event, 3)}
+				>
+					<ListItemText primary="Spam" />
+				</ListItem>
+			</List>
+		</div>
 	);
 }

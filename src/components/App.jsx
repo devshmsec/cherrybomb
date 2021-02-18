@@ -7,10 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import UploadAdapter from "../uploadadabter";
-
-// Colors
-import Green from "@material-ui/core/colors/green";
+import UploadAdapter from "../utils/uploadadabter";
 
 // Custom Components
 import ToolBarView from "./ToolbarView";

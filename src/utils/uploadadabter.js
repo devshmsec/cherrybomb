@@ -24,6 +24,8 @@ class UploadAdapter {
 						(snapshot) => {
 							/* snapshot with info about 
                             the upload progress & metadata */
+							console.log("Hello, World");
+							console.log(snapshot);
 						},
 						(error) => {
 							// error handling

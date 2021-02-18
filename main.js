@@ -1,9 +1,9 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require("electron");
-const os = require("os");
+const { app, BrowserWindow, globalShortcut } = require("electron");
 const path = require("path");
 
 const isDev = !app.isPackaged;
+const icon = path.join(__dirname, "favicon.ico");
 
 function createWindow() {
 	// Create the browser window.
@@ -26,6 +26,7 @@ function createWindow() {
 if (isDev) {
 	require("electron-reload")(__dirname, {
 		electron: path.join(__dirname, "node_modules", ".bin", "electron"),
+		argv: ["--enable-transparent-visuals", "--disable-gpu"],
 	});
 }
 
