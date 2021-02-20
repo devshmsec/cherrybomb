@@ -7,7 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import UploadAdapter from "../utils/uploadadabter";
+import UploadAdapter from "../utils/uploadAdabter";
 
 // Custom Components
 import ToolBarView from "./ToolbarView";

@@ -8,7 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 // Icons
@@ -23,28 +23,15 @@ import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import PhotoSizeSelectLargeIcon from "@material-ui/icons/PhotoSizeSelectLarge";
 import MovieFilterIcon from "@material-ui/icons/MovieFilter";
 
-function MarkdownIcon(props) {
-	return (
-		<SvgIcon
-			fontSize="inherit"
-			style={{ width: 30, height: 30, marginTop: 8, marginLeft: 8 }}
-			{...props}
-		>
-			<path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
-			<path
-				fillRule="evenodd"
-				d="M9.146 8.146a.5.5 0 0 1 .708 0L11.5 9.793l1.646-1.647a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 0-.708z"
-			/>
-			<path
-				fillRule="evenodd"
-				d="M11.5 5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 1 .5-.5z"
-			/>
-			<path d="M3.56 11V7.01h.056l1.428 3.239h.774l1.42-3.24h.056V11h1.073V5.001h-1.2l-1.71 3.894h-.039l-1.71-3.894H2.5V11h1.06z" />
-		</SvgIcon>
-	);
-}
-
 // Components
+import Converter from "./Convert";
+import PicCropper from "./Cropper";
+import {
+	CreateParentNode,
+	CreateChildNode,
+	DeleteNode,
+	NewProject,
+} from "./Popovers";
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -54,44 +41,101 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ToolBarView() {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(false);
 
-	const handleClickOpen = () => {
-		setOpen(true);
+	// Parent Node
+	const [openParentNode, setOpenParentNode] = React.useState(false);
+	const handleParentOpen = () => {
+		setOpenParentNode(true);
+	};
+	const handleParentClose = () => {
+		setOpenParentNode(false);
 	};
 
-	const handleClose = () => {
-		setOpen(false);
+	// Child Node
+	const [openChildNode, setOpenChildNode] = React.useState(false);
+	const handleChildOpen = () => {
+		setOpenChildNode(true);
+	};
+	const handleChildClose = () => {
+		setOpenChildNode(false);
+	};
+
+	// Delete Node
+	const [openDelete, setOpenDelete] = React.useState(false);
+	const handleDeleteOpen = () => {
+		setOpenDelete(true);
+	};
+	const handleDeleteClose = () => {
+		setOpenDelete(false);
+	};
+
+	// New Project
+	const [openNewProject, setOpenNewProject] = React.useState(false);
+	const handleNewProjectOpen = () => {
+		setOpenNewProject(true);
+	};
+	const handleNewProjectClose = () => {
+		setOpenNewProject(false);
+	};
+
+	// Gif Maker
+	const [openGifMaker, setOpenGifMaker] = React.useState(false);
+	const handleGifMakerOpen = () => {
+		setOpenGifMaker(true);
+	};
+	const handleGifMakerClose = () => {
+		setOpenGifMaker(false);
+	};
+
+	// Picture Selector
+	const [openPicSel, setOpenPicSel] = React.useState(false);
+	const handlePicSelOpen = () => {
+		setOpenPicSel(true);
+	};
+	const handlePicSelClose = () => {
+		setOpenPicSel(false);
 	};
 
 	return (
 		<>
+			<CreateParentNode
+				openParentNode={openParentNode}
+				handleParentClose={handleParentClose}
+			/>
+
+			<CreateChildNode
+				openChildNode={openChildNode}
+				handleChildClose={handleChildClose}
+			/>
+
+			<DeleteNode
+				openDelete={openDelete}
+				handleDeleteClose={handleDeleteClose}
+			/>
+
+			<NewProject
+				openNewProject={openNewProject}
+				handleNewProjectClose={handleNewProjectClose}
+			/>
+
 			<Dialog
-				open={open}
-				onClose={handleClose}
+				fullWidth
+				maxWidth="sm"
+				open={openGifMaker}
+				onClose={handleGifMakerClose}
 				aria-labelledby="form-dialog-title"
 			>
-				<DialogTitle id="form-dialog-title">
-					New Parent Node
-				</DialogTitle>
-				<DialogContent>
-					<TextField
-						autoFocus
-						margin="dense"
-						id="name"
-						label="Name"
-						type="text"
-						fullWidth
-					/>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose} color="primary">
-						Cancel
-					</Button>
-					<Button onClick={handleClose} color="primary">
-						Create
-					</Button>
-				</DialogActions>
+				<Converter />
+			</Dialog>
+
+			<Dialog
+				fullWidth
+				maxWidth="sm"
+				open={openPicSel}
+				onClose={handlePicSelClose}
+				aria-labelledby="form-dialog-title"
+			>
+				<PicCropper />
 			</Dialog>
 
 			<Toolbar>
@@ -99,20 +143,28 @@ export default function ToolBarView() {
 					<IconButton
 						className={classes.button}
 						aria-label="add parent node"
-						onClick={handleClickOpen}
+						onClick={handleParentOpen}
 					>
 						<AddBoxIcon />
 					</IconButton>
 				</Tooltip>
 
 				<Tooltip title="Add Child Node">
-					<IconButton aria-label="add child node">
+					<IconButton
+						className={classes.button}
+						aria-label="add child node"
+						onClick={handleChildOpen}
+					>
 						<NoteAddIcon />
 					</IconButton>
 				</Tooltip>
 
 				<Tooltip title="Delete">
-					<IconButton aria-label="delete">
+					<IconButton
+						className={classes.button}
+						aria-label="delete"
+						onClick={handleDeleteOpen}
+					>
 						<DeleteIcon />
 					</IconButton>
 				</Tooltip>
@@ -130,7 +182,11 @@ export default function ToolBarView() {
 				</Tooltip>
 
 				<Tooltip title="Open">
-					<IconButton aria-label="open project">
+					<IconButton
+						className={classes.button}
+						aria-label="open project"
+						onClick={handleNewProjectOpen}
+					>
 						<FolderOpenIcon />
 					</IconButton>
 				</Tooltip>
@@ -147,20 +203,22 @@ export default function ToolBarView() {
 					</IconButton>
 				</Tooltip>
 
-				<Tooltip title="Export to Markdown">
-					<IconButton aria-label="export to markdown">
-						<MarkdownIcon />
-					</IconButton>
-				</Tooltip>
-
 				<Tooltip title="Picture Selection">
-					<IconButton aria-label="select/crop picture">
+					<IconButton
+						className={classes.button}
+						aria-label="select/crop picture"
+						onClick={handlePicSelOpen}
+					>
 						<PhotoSizeSelectLargeIcon />
 					</IconButton>
 				</Tooltip>
 
 				<Tooltip title="GIF Maker">
-					<IconButton aria-label="convert video to gif">
+					<IconButton
+						className={classes.button}
+						aria-label="convert video to gif"
+						onClick={handleGifMakerOpen}
+					>
 						<MovieFilterIcon />
 					</IconButton>
 				</Tooltip>
