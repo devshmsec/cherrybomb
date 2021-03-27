@@ -1,5 +1,9 @@
-# folders to ignore from git.
+# Files and folders to ignore from project
 
 node_modules
-.vscode
 build
+
+# Personal folder or files to ignore
+
+.vscode
+.prettierrc

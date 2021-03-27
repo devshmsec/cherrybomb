@@ -13,6 +13,8 @@ git clone https://github.com/devshmsec/cherrybomb.git
 cd cherrybomb
 # Install dependencies
 npm install
+# Build and watch the app on your local machine
+npm run watch 
 # Run the app
 npm start
 ```

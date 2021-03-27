@@ -1,9 +1,12 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, globalShortcut } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-const isDev = !app.isPackaged;
-const icon = path.join(__dirname, "favicon.ico");
+const {
+	default: installExtension,
+	REDUX_DEVTOOLS,
+	REACT_DEVELOPER_TOOLS,
+} = require("electron-devtools-installer");
 
 function createWindow() {
 	// Create the browser window.
@@ -17,23 +20,21 @@ function createWindow() {
 	});
 
 	// and load the index.html of the app.
-	mainWindow.loadFile("index.html");
+	mainWindow.loadFile("public/index.html");
 
 	// Open the DevTools.
 	// mainWindow.webContents.openDevTools()
 }
 
-if (isDev) {
-	require("electron-reload")(__dirname, {
-		electron: path.join(__dirname, "node_modules", ".bin", "electron"),
-		argv: ["--enable-transparent-visuals", "--disable-gpu"],
-	});
-}
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+	// Install React and Redux Developer Tools
+	await installExtension(REACT_DEVELOPER_TOOLS);
+	await installExtension(REDUX_DEVTOOLS);
+
+	// Create the main window
 	createWindow();
 
 	app.on("activate", function () {

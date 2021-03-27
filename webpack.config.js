@@ -1,10 +1,20 @@
 const path = require("path");
 
+const ElectronReloadPlugin = require("webpack-electron-reload")({
+	path: path.join(__dirname, "main.js"),
+});
+
 module.exports = {
 	mode: "development",
-	entry: "./src/index.js",
+	entry: {
+		index: "./src/index.js",
+	},
 	devtool: "inline-source-map",
-	target: "electron-renderer",
+	stats: {
+		preset: "minimal",
+		colors: true,
+	},
+	target: "electron-main",
 	module: {
 		rules: [
 			{
@@ -17,9 +27,7 @@ module.exports = {
 							[
 								"@babel/preset-env",
 								{
-									targets: {
-										esmodules: true,
-									},
+									targets: { esmodules: true },
 								},
 							],
 							"@babel/preset-react",
@@ -38,26 +46,28 @@ module.exports = {
 			{
 				test: [/\.s[ac]ss$/i, /\.css$/i],
 				use: [
-					// [style-loader](/loaders/style-loader)
-					{ loader: "style-loader" },
-					// [css-loader](/loaders/css-loader)
 					{
-						loader: "css-loader",
-						options: {
-							modules: true,
-						},
+						// inject CSS to page
+						loader: "style-loader",
 					},
-					// [sass-loader](/loaders/sass-loader)
-					{ loader: "sass-loader" },
+					{
+						// translates CSS into CommonJS modules
+						loader: "css-loader",
+					},
+					{
+						// compiles Sass to CSS
+						loader: "sass-loader",
+					},
 				],
 			},
 		],
 	},
+	plugins: [ElectronReloadPlugin("electron-renderer")],
 	resolve: {
 		extensions: [".js", ".jsx"],
 	},
 	output: {
-		filename: "app.js",
+		filename: "renderer.js",
 		path: path.resolve(__dirname, "build", "js"),
 	},
 };
