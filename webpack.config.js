@@ -1,9 +1,5 @@
 const path = require("path");
 
-const ElectronReloadPlugin = require("webpack-electron-reload")({
-	path: path.join(__dirname, "main.js"),
-});
-
 module.exports = {
 	mode: "development",
 	entry: {
@@ -23,23 +19,8 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 					options: {
-						presets: [
-							[
-								"@babel/preset-env",
-								{
-									targets: { esmodules: true },
-								},
-							],
-							"@babel/preset-react",
-						],
-						plugins: [
-							[
-								"@babel/plugin-proposal-class-properties",
-								{
-									loose: true,
-								},
-							],
-						],
+						presets: ["@babel/preset-env", "@babel/preset-react"],
+						plugins: ["@babel/plugin-proposal-class-properties"],
 					},
 				},
 			},
@@ -62,12 +43,34 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [ElectronReloadPlugin("electron-renderer")],
 	resolve: {
 		extensions: [".js", ".jsx"],
+		alias: {
+			"@assets": path.resolve(__dirname, "assets"),
+			"@components": path.resolve(__dirname, "src", "components"),
+			"@interfaces": path.resolve(
+				__dirname,
+				"src",
+				"components",
+				"interfaces"
+			),
+			"@views": path.resolve(__dirname, "src", "components", "views"),
+			"@redux": path.resolve(__dirname, "src", "redux"),
+			"@styles": path.resolve(__dirname, "src", "styles"),
+			"@utils": path.resolve(__dirname, "src", "utils"),
+			"@src": path.resolve(__dirname, "src"),
+		},
 	},
 	output: {
 		filename: "renderer.js",
-		path: path.resolve(__dirname, "build", "js"),
+		path: path.resolve(__dirname, "public"),
+	},
+	devServer: {
+		contentBase: path.join(__dirname, "public"),
+		index: "index.html",
+		hot: false,
+		watchContentBase: true,
+		liveReload: true,
+		port: 9000,
 	},
 };

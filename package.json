@@ -4,9 +4,10 @@
 	"description": "A reconnaissance notes taking app for pentetration tester",
 	"main": "main.js",
 	"scripts": {
-		"start": "./node_modules/.bin/electron main.js",
-		"build": "webpack",
-		"dev": "webpack --watch"
+		"start": "electron main.js",
+		"bundle": "webpack",
+		"dev": "webpack --watch",
+		"serve": "webpack serve"
 	},
 	"repository": {
 		"type": "git",
@@ -15,7 +16,7 @@
 	"keywords": [
 		"electron",
 		"react",
-		"bootstrap",
+		"material-ui",
 		"markdown",
 		"pentesting",
 		"reports"
@@ -39,16 +40,17 @@
 		"sass": "^1.32.8",
 		"sass-loader": "^11.0.1",
 		"style-loader": "^2.0.0",
-		"webpack": "^5.27.2",
+		"webpack": "^5.28.0",
 		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2",
 		"webpack-electron-reload": "^1.0.1"
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.11.3",
+		"@material-ui/icons": "^4.11.2",
 		"@material-ui/lab": "^4.0.0-alpha.57",
-		"bootstrap": "^5.0.0-beta3",
 		"react": "^17.0.2",
-		"react-bootstrap": "^1.5.2",
+		"react-bootstrap-icons": "^1.4.0",
 		"react-dom": "^17.0.2"
 	}
 }
