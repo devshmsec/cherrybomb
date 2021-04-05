@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Grid, CssBaseline } from "@material-ui/core";
+import { Grid, CssBaseline, Typography } from "@material-ui/core";
+import { StatusBar } from "@interfaces/StatusBar";
+import TabBar from "@interfaces/TabBar";
 import "./App.css";
 
 class App extends Component {
@@ -11,9 +13,19 @@ class App extends Component {
 		return (
 			<>
 				<CssBaseline />
-				<Grid container direction="column">
-					<Grid item container></Grid>
-					<Grid item></Grid>
+				<Grid className="window" container direction="column">
+					<Grid item container direction="row">
+						<Grid item>
+							<TabBar />
+						</Grid>
+						<Grid item container direction="column">
+							<Grid item></Grid>
+							<Grid item></Grid>
+						</Grid>
+					</Grid>
+					<Grid item>
+						<StatusBar />
+					</Grid>
 				</Grid>
 			</>
 		);

@@ -1,0 +1,7 @@
+.window {
+	height: 100vh;
+	width: 100vw;
+	display: block;
+	background-color: #fbf1c7;
+	position: relative;
+}
