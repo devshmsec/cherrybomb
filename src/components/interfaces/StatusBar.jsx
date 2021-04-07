@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
 	container: {
-		height: "18px",
+		height: "1.2rem",
 		diplay: "flex",
 		flexGrow: "1",
 		backgroundColor: "#b16286",

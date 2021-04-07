@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexGrow: 1,
 		height: "100vh",
-		width: "70px",
+		width: "4.5rem",
 	},
 }));
 
