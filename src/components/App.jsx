@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Grid, CssBaseline, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { StatusBar } from "@interfaces/StatusBar";
-import TabBar from "@interfaces/TabBar";
+import SideBar from "@components/interfaces/SideBar";
 import Explorer from "@views/Explorer";
-import Opened from "@interfaces/Opened";
+import TabBar from "@components/interfaces/TabBar";
 import Editor from "@interfaces/Editor";
 import "./App.css";
 
@@ -30,7 +30,7 @@ class App extends Component {
 				<Grid className="window" container direction="column">
 					<Grid className="container" item container direction="row">
 						<Grid className="tabbar" item>
-							<TabBar />
+							<SideBar />
 						</Grid>
 						<StyledGrid item container direction="row">
 							<StyledGrid
@@ -43,7 +43,7 @@ class App extends Component {
 							</StyledGrid>
 							<Grid item container direction="column">
 								<Grid item>
-									<Opened />
+									<TabBar />
 								</Grid>
 								<Grid item>
 									<Editor />

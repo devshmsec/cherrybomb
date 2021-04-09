@@ -1,37 +1,39 @@
 import React from "react";
 import { Paper } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Editor, EditorState } from "draft-js";
+import { EditorState } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
 import "draft-js/dist/Draft.css";
+import "@node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: "flex",
-		flexDirection: "column",
-		flexGrow: "1",
-		height: "auto",
-	},
-}));
+class ControlledEditor extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			editorState: EditorState.createEmpty(),
+		};
+	}
 
-export default () => {
-	const classes = useStyles();
-	const [editorState, setEditorState] = React.useState(() =>
-		EditorState.createEmpty()
-	);
-
-	const handleChange = (value) => {
-		setEditorState(value);
+	onEditorStateChange = (editorState) => {
+		this.setState({
+			editorState,
+		});
 	};
 
-	return (
-		<>
-			<Paper className={classes.root} variant="outlined">
-				<Editor
-					placeholder="Write Something"
-					editorState={editorState}
-					onChange={handleChange}
-				/>
-			</Paper>
-		</>
-	);
-};
+	render() {
+		const { editorState } = this.state;
+		return (
+			<>
+				<Paper variant="outlined">
+					<Editor
+						editorState={editorState}
+						wrapperClassName="demo-wrapper"
+						editorClassName="demo-editor"
+						onEditorStateChange={this.onEditorStateChange}
+					/>
+				</Paper>
+			</>
+		);
+	}
+}
+
+export default ControlledEditor;

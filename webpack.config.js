@@ -59,6 +59,7 @@ module.exports = {
 			"@styles": path.resolve(__dirname, "src", "styles"),
 			"@utils": path.resolve(__dirname, "src", "utils"),
 			"@src": path.resolve(__dirname, "src"),
+			"@node_modules": path.resolve(__dirname, "node_modules"),
 		},
 	},
 	output: {

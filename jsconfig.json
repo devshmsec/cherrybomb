@@ -11,7 +11,8 @@
         "@redux/*": ["./src/redux/*"],
         "@styles/*": ["./src/styles/*"],
         "@utils/*": ["./src/utils/*"],
-        "@src/*": ["./src/*"]
+        "@src/*": ["./src/*"],
+        "@node_modules/*": ["./node_modules/*"]
       }
     },
     "exclude": ["node_modules"]

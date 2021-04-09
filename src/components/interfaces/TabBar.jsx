@@ -1,74 +1,43 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Paper, Tab, Tabs } from "@material-ui/core";
-import { TabList, TabPanel, TabContext } from "@material-ui/lab";
-import * as Icons from "react-bootstrap-icons";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: "flex",
-		flexGrow: 1,
-		height: "100vh",
-		width: "4.5rem",
+const StyledTabs = withStyles((theme) => ({
+	flexContainer: {
+		backgroundColor: "#83a598",
+		color: "#282828",
 	},
-}));
+	fixed: {
+		backgroundColor: "#458588",
+	},
+}))(Tabs);
 
 const StyledTab = withStyles((theme) => ({
 	root: {
-		overflow: "hidden",
-	},
-	wrapper: {
-		padding: "0.5rem",
-		display: "inline-flex",
-		alignItems: "flex-start",
+		textTransform: "inherit",
+		backgroundColor: "#458588",
+		color: "#1d2021",
 	},
 }))(Tab);
 
-export default function TabBar() {
-	const classes = useStyles();
-	const [value, setValue] = React.useState(0);
+export default function OpenedTabs() {
+	const [value, setValue] = React.useState(2);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
 	return (
-		<>
-			<Paper className={classes.root} variant="outlined">
-				<Tabs
-					value={value}
-					onChange={handleChange}
-					orientation="vertical"
-					variant="standard"
-					aria-label="Tabs"
-				>
-					<StyledTab
-						id="Explorer"
-						icon={<Icons.FileEarmark size={32} />}
-						aria-label="Explorer"
-					/>
-					<StyledTab
-						id="Templates"
-						icon={<Icons.AppIndicator size={32} />}
-						aria-label="Templates"
-					/>
-					<StyledTab
-						id="Media"
-						icon={<Icons.Collection size={32} />}
-						aria-label="Media"
-					/>
-					<StyledTab
-						id="Export"
-						icon={<Icons.Archive size={32} />}
-						aria-label="Export"
-					/>
-					<StyledTab
-						id="Settings"
-						icon={<Icons.Gear size={32} />}
-						aria-label="Settings"
-					/>
-				</Tabs>
-			</Paper>
-		</>
+		<Paper square>
+			<StyledTabs
+				value={value}
+				indicatorColor="primary"
+				textColor="primary"
+				onChange={handleChange}
+				aria-label="disabled tabs example"
+			></StyledTabs>
+		</Paper>
 	);
 }
