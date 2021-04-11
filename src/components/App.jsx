@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import { Grid, CssBaseline, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { StatusBar } from "@interfaces/StatusBar";
-import SideBar from "@components/interfaces/SideBar";
+import { StatusBar } from "@components/interfaces/StatusBar";
+import SideBar from "@components/interfaces/Sidebar";
 import Explorer from "@views/Explorer";
 import TabBar from "@components/interfaces/TabBar";
-import Editor from "@interfaces/Editor";
+import Editor from "@components/interfaces/Editor";
 import "./App.css";
 
 const StyledGrid = withStyles((theme) => ({
 	container: {
 		height: "100vh",
 		width: "auto",
-		display: "flex",
 		flexGrow: "1",
 		flexWrap: "nowrap",
 	},
@@ -27,9 +26,14 @@ class App extends Component {
 		return (
 			<>
 				<CssBaseline />
-				<Grid className="window" container direction="column">
-					<Grid className="container" item container direction="row">
-						<Grid className="tabbar" item>
+				<StyledGrid className="window" container direction="column">
+					<StyledGrid
+						className="container"
+						item
+						container
+						direction="row"
+					>
+						<Grid className="sidebar" item>
 							<SideBar />
 						</Grid>
 						<StyledGrid item container direction="row">
@@ -42,19 +46,19 @@ class App extends Component {
 								<Explorer />
 							</StyledGrid>
 							<Grid item container direction="column">
-								<Grid item>
+								<Grid className="tabbar" item>
 									<TabBar />
 								</Grid>
-								<Grid item>
+								<Grid className="editor" item>
 									<Editor />
 								</Grid>
 							</Grid>
 						</StyledGrid>
-					</Grid>
+					</StyledGrid>
 					<Grid item>
 						<StatusBar />
 					</Grid>
-				</Grid>
+				</StyledGrid>
 			</>
 		);
 	}

@@ -1,9 +1,16 @@
+:root {
+	--black: #282828;
+	--white: #ebdbb2;
+	--hard-white: #fbf1c7;
+}
+
 .window {
 	height: 100vh;
 	width: 100vw;
 	display: flex;
-	background-color: #fbf1c7;
+	background-color: var(--hard-white);
 	position: relative;
+	flex-wrap: nowrap;
 }
 
 .container {
@@ -12,12 +19,12 @@
 	flex-wrap: inherit;
 }
 
-.tabbar {
+.sidebar {
 	width: 4.5rem;
 	height: 100vh;
 }
 
 .accordions {
-	color: #ebdbb2;
-	background-color: #282828;
+	color: var(--white);
+	background-color: var(--black);
 }

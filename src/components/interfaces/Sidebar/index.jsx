@@ -43,26 +43,31 @@ export default function TabBar() {
 					aria-label="Tabs"
 				>
 					<StyledTab
+						disableRipple
 						id="Explorer"
 						icon={<Icons.FileEarmark size={32} />}
 						aria-label="Explorer"
 					/>
 					<StyledTab
+						disableRipple
 						id="Templates"
 						icon={<Icons.AppIndicator size={32} />}
 						aria-label="Templates"
 					/>
 					<StyledTab
+						disableRipple
 						id="Media"
 						icon={<Icons.Collection size={32} />}
 						aria-label="Media"
 					/>
 					<StyledTab
+						disableRipple
 						id="Export"
 						icon={<Icons.Archive size={32} />}
 						aria-label="Export"
 					/>
 					<StyledTab
+						disableRipple
 						id="Settings"
 						icon={<Icons.Gear size={32} />}
 						aria-label="Settings"
