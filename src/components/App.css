@@ -28,3 +28,9 @@
 	color: var(--white);
 	background-color: var(--black);
 }
+
+.editor {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
