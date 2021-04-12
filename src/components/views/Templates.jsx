@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 export default function Explorer() {
 	return (
 		<>
-			<Typography variant="h2">Explorer</Typography>
+			<Typography variant="h2">Templates</Typography>
 		</>
 	);
 }

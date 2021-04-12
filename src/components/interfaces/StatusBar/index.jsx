@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 	},
 });
 
-export const StatusBar = () => {
+export default function StatusBar() {
 	const classes = useStyles();
 	return <div className={classes.container}></div>;
-};
+}

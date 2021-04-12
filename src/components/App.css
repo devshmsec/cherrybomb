@@ -25,12 +25,20 @@
 }
 
 .accordions {
-	color: var(--white);
-	background-color: var(--black);
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
 }
 
 .editor {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+}
+
+.ck-editor__editable {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: row;
+	min-height: 600px !important;
 }

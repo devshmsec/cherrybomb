@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Paper, Tab, Tabs } from "@material-ui/core";
-import { TabList, TabPanel, TabContext } from "@material-ui/lab";
+import { TabContext } from "@components/App";
 import * as Icons from "react-bootstrap-icons";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,51 +26,42 @@ const StyledTab = withStyles((theme) => ({
 
 export default function TabBar() {
 	const classes = useStyles();
-	const [value, setValue] = React.useState(0);
-
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
-	};
+	const tabContext = useContext(TabContext);
 
 	return (
 		<>
 			<Paper className={classes.root} variant="outlined">
 				<Tabs
-					value={value}
-					onChange={handleChange}
+					value={tabContext.tabSelected}
+					onChange={tabContext.handleSideTabs}
 					orientation="vertical"
 					variant="standard"
-					aria-label="Tabs"
+					aria-label="SideBarTabs"
 				>
 					<StyledTab
 						disableRipple
-						id="Explorer"
 						icon={<Icons.FileEarmark size={32} />}
-						aria-label="Explorer"
+						value="Explorer"
 					/>
 					<StyledTab
 						disableRipple
-						id="Templates"
 						icon={<Icons.AppIndicator size={32} />}
-						aria-label="Templates"
+						value="Templates"
 					/>
 					<StyledTab
 						disableRipple
-						id="Media"
 						icon={<Icons.Collection size={32} />}
-						aria-label="Media"
+						value="Collections"
 					/>
 					<StyledTab
 						disableRipple
-						id="Export"
 						icon={<Icons.Archive size={32} />}
-						aria-label="Export"
+						value="Converter"
 					/>
 					<StyledTab
 						disableRipple
-						id="Settings"
 						icon={<Icons.Gear size={32} />}
-						aria-label="Settings"
+						value="Settings"
 					/>
 				</Tabs>
 			</Paper>
