@@ -3,6 +3,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Paper, Tab, Tabs } from "@material-ui/core";
 import { TabContext } from "@components/App";
 import * as Icons from "react-bootstrap-icons";
+import "./styles.css";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

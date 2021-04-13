@@ -1,10 +1,53 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+	Accordion,
+	AccordionDetails,
+	AccordionSummary,
+	Typography,
+} from "@material-ui/core";
+import FileSystemNav from "@views/FileSystemNav";
+import Outline from "@views/Outline";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		width: "100%",
+		color: "#ebdbbd",
+		background: "#282828",
+	},
+	heading: {
+		fontSize: theme.typography.pxToRem(14),
+		fontWeight: theme.typography.fontWeightBold,
+	},
+}));
 
 export default function Explorer() {
+	const classes = useStyles();
+
 	return (
 		<>
-			<Typography variant="h2">Explorer</Typography>
+			<div>
+				<Accordion defaultExpanded square className={classes.root}>
+					<AccordionSummary aria-controls="Files" id="Files">
+						<Typography className={classes.heading}>
+							Files
+						</Typography>
+					</AccordionSummary>
+					<AccordionDetails>
+						<FileSystemNav />
+					</AccordionDetails>
+				</Accordion>
+				<Accordion square className={classes.root}>
+					<AccordionSummary aria-controls="Outline" id="Outline">
+						<Typography className={classes.heading}>
+							Outline
+						</Typography>
+					</AccordionSummary>
+					<AccordionDetails>
+						<Outline />
+					</AccordionDetails>
+				</Accordion>
+			</div>
 		</>
 	);
 }

@@ -6,7 +6,7 @@ import StatusBar from "@interfaces/StatusBar";
 import SideBar from "@interfaces/Sidebar";
 import SidePanel from "@interfaces/SidePanel";
 import TabBar from "@interfaces/TabBar";
-import Editor from "@interfaces/Editor";
+// import Editor from "@interfaces/Editor";
 
 import "./App.css";
 export const TabContext = React.createContext();
@@ -68,9 +68,7 @@ class App extends Component {
 									<Grid className="tabbar" item>
 										<TabBar />
 									</Grid>
-									<Grid className="editor" item>
-										<Editor />
-									</Grid>
+									<Grid className="editor" item></Grid>
 								</Grid>
 							</StyledGrid>
 						</TabContext.Provider>
