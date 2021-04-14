@@ -12,7 +12,7 @@ import { TabContext } from "@components/App";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: "18rem",
+		width: "20rem",
 		display: "flex",
 		flexDirection: "row",
 		backgroundColor: "#282828",

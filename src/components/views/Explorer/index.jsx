@@ -6,8 +6,9 @@ import {
 	AccordionSummary,
 	Typography,
 } from "@material-ui/core";
-import FileSystemNav from "@views/FileSystemNav";
-import Outline from "@views/Outline";
+import FileSystemNav from "@components/views/Explorer/FileSystemNav";
+import Outline from "@components/views/Explorer/Outline";
+import "./styles.css";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
