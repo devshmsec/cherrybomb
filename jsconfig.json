@@ -1,19 +1,24 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "es6",
-      "baseUrl": ".",
-      "paths": {
-        "@assets/*": ["./assets/*"],
-        "@components/*": ["./src/components/*"],
-        "@interfaces/*": ["./src/components/interfaces/*"],
-        "@views/*": ["src/components/views/*"],
-        "@redux/*": ["./src/redux/*"],
-        "@styles/*": ["./src/styles/*"],
-        "@utils/*": ["./src/utils/*"],
-        "@src/*": ["./src/*"],
-        "@node_modules/*": ["./node_modules/*"]
-      }
-    },
-    "exclude": ["node_modules"]
+	"compilerOptions": {
+        "jsx": "react",
+	  	"module": "esnext",
+	  	"target": "es5",
+	  	"lib": ["es2020", "dom"],
+	  	"moduleResolution": "node",
+	  	"forceConsistentCasingInFileNames": true,
+	  	"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"experimentalDecorators": true,
+	  	"checkJs": true,
+	  	"removeComments": true,
+	  	"sourceMap": true,
+		"paths": {
+			"@src/*": ["src/*"],
+			"@components/*": ["src/components/*"],
+			"@interfaces/*": ["src/interfaces/*"],
+			"@redux/*": ["src/redux/*"],
+			"@utils/*": ["src/utils/*"]
+		},
+	},
+	"exclude": ["node_modules", "**/*.(test|stories).jsx?"]
 }
