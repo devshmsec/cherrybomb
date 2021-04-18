@@ -1,0 +1,21 @@
+/*
+*   This sass file targets the styles for components in SideBar/index.jsx
+*/
+
+.sidebar {
+    .MuiPaper-outlined {
+        height: 100vh;
+        width: 5em;
+    }
+
+    .MuiTab-root {
+        padding: 8px 12px;
+        max-width: 5em;
+    }
+}
+
+span.MuiTab-wrapper {
+    padding: 5px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}

@@ -44,6 +44,7 @@ module.exports = {
             '@interfaces': path.resolve(__dirname, 'src', 'interfaces'),
             '@redux': path.resolve(__dirname, 'src', 'redux'),
             '@utils': path.resolve(__dirname, 'src', 'utils'),
+            '@assets': path.resolve(__dirname, 'assets'),
         },
     },
     output: {
