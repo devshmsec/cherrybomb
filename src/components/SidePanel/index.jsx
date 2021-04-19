@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 
@@ -13,20 +13,21 @@ import Manage from '@components/views/Manage';
 // styles
 import './styles.scss';
 
-const drawerWidth = 40;
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: theme.spacing(drawerWidth),
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        overflow: 'hidden',
-    },
-}));
-
 export default function SidePanel() {
     // @ts-ignore
     const selectedTab = useSelector((state) => state.sidebar.value);
+
+    // @ts-ignore
+    const drawerWidth = useSelector((state) => state.resize.value);
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            width: theme.spacing(drawerWidth),
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh',
+            overflow: 'hidden',
+        },
+    }));
     const classes = useStyles();
 
     return (
@@ -38,6 +39,7 @@ export default function SidePanel() {
                 {selectedTab === 'Marketplace' && <Marketplace />}
                 {selectedTab === 'Settings' && <Manage />}
             </Paper>
+            <Divider className="resizer" orientation="vertical" flexItem />
         </>
     );
 }

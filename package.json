@@ -1,75 +1,73 @@
 {
-	"name": "cherrybomb",
-	"version": "1.0.0",
-	"description": "A reconnaissance notes taking app for pentetration tester",
-	"main": "main.js",
-	"scripts": {
-		"start": "electron main.js",
-		"bundle": "webpack",
-		"dev": "webpack --watch",
-		"serve": "webpack serve"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/devshmsec/cherrybomb.git"
-	},
-	"keywords": [
-		"electron",
-		"react",
-		"material-ui",
-		"markdown",
-		"pentesting",
-		"reports"
-	],
-	"author": "Vinay Verma",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/devshmsec/cherrybomb/issues"
-	},
-	"homepage": "https://github.com/devshmsec/cherrybomb#readme",
-	"devDependencies": {
-		"@babel/core": "^7.13.10",
-		"@babel/eslint-parser": "^7.13.14",
-		"@babel/plugin-proposal-class-properties": "^7.13.0",
-		"@babel/plugin-proposal-object-rest-spread": "^7.13.8",
-		"@babel/plugin-transform-object-assign": "^7.12.13",
-		"@babel/plugin-transform-react-constant-elements": "^7.13.13",
-		"@babel/plugin-transform-runtime": "^7.13.15",
-		"@babel/preset-env": "^7.13.12",
-		"@babel/preset-react": "^7.12.13",
-		"@testing-library/jest-dom": "^5.11.10",
-		"@testing-library/react": "^11.2.6",
-		"babel-loader": "^8.2.2",
-		"css-loader": "^5.1.3",
-		"electron": "^12.0.2",
-		"electron-devtools-installer": "^3.1.1",
-		"eslint": "^7.24.0",
-		"eslint-config-airbnb": "^18.2.1",
-		"eslint-config-prettier": "^8.2.0",
-		"eslint-plugin-babel": "^5.3.1",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-jsx-a11y": "^6.4.1",
-		"eslint-plugin-react": "^7.23.2",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"file-loader": "^6.2.0",
-		"mini-css-extract-plugin": "^1.4.1",
-		"prettier": "^2.2.1",
-		"sass": "^1.32.8",
-		"sass-loader": "^11.0.1",
-		"style-loader": "^2.0.0",
-		"webpack": "^5.28.0",
-		"webpack-cli": "^4.5.0",
-		"webpack-dev-server": "^3.11.2",
-		"webpack-electron-reload": "^1.0.1"
-	},
-	"dependencies": {
-		"@material-ui/core": "^4.11.3",
-		"@material-ui/icons": "^4.11.2",
-		"@material-ui/lab": "^4.0.0-alpha.57",
-		"@reduxjs/toolkit": "^1.5.1",
-		"react": "^17.0.2",
-		"react-bootstrap-icons": "^1.4.0",
-		"react-dom": "^17.0.2",
-		"react-redux": "^7.2.3"
-	}
+    "name": "cherrybomb",
+    "version": "1.0.0",
+    "description": "A reconnaissance notes taking app for pentetration tester",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron main.js",
+        "bundle": "webpack",
+        "dev": "webpack --watch",
+        "serve": "webpack serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devshmsec/cherrybomb.git"
+    },
+    "keywords": [
+        "electron",
+        "react",
+        "material-ui",
+        "markdown",
+        "pentesting",
+        "reports"
+    ],
+    "author": "Vinay Verma",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/devshmsec/cherrybomb/issues"
+    },
+    "homepage": "https://github.com/devshmsec/cherrybomb#readme",
+    "devDependencies": {
+        "@babel/core": "^7.13.10",
+        "@babel/eslint-parser": "^7.13.14",
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+        "@babel/plugin-transform-object-assign": "^7.12.13",
+        "@babel/plugin-transform-react-constant-elements": "^7.13.13",
+        "@babel/plugin-transform-runtime": "^7.13.15",
+        "@babel/preset-env": "^7.13.12",
+        "@babel/preset-react": "^7.12.13",
+        "@testing-library/jest-dom": "^5.11.10",
+        "@testing-library/react": "^11.2.6",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^5.1.3",
+        "electron": "^12.0.2",
+        "eslint": "^7.24.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^8.2.0",
+        "eslint-plugin-babel": "^5.3.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.23.2",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "file-loader": "^6.2.0",
+        "mini-css-extract-plugin": "^1.4.1",
+        "prettier": "^2.2.1",
+        "sass": "^1.32.8",
+        "sass-loader": "^11.0.1",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.28.0",
+        "webpack-cli": "^4.5.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.11.3",
+        "@material-ui/icons": "^4.11.2",
+        "@material-ui/lab": "^4.0.0-alpha.57",
+        "@reduxjs/toolkit": "^1.5.1",
+        "react": "^17.0.2",
+        "react-bootstrap-icons": "^1.4.0",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.3"
+    }
 }
