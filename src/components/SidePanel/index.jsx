@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux';
 
 // views
 import Explore from '@components/views/Explore';
@@ -24,11 +25,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SidePanel() {
+    // @ts-ignore
+    const selectedTab = useSelector((state) => state.sidebar.value);
     const classes = useStyles();
+
     return (
         <>
             <Paper className={classes.root} variant="outlined" square>
-                <Explore />
+                {selectedTab === 'Explore' && <Explore />}
+                {selectedTab === 'Search' && <Search />}
+                {selectedTab === 'Storage' && <Storage />}
+                {selectedTab === 'Marketplace' && <Marketplace />}
+                {selectedTab === 'Settings' && <Manage />}
             </Paper>
         </>
     );
