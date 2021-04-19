@@ -15,7 +15,7 @@ import {
 import './styles.scss';
 
 export default function SideBar() {
-    const [value, setValue] = React.useState('Explorer');
+    const [value, setValue] = React.useState('Explore');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -34,7 +34,7 @@ export default function SideBar() {
                     <Tab
                         disableRipple
                         icon={<FileEarmark size={32} />}
-                        value="Explorer"
+                        value="Explore"
                     />
                     <Tab
                         disableRipple

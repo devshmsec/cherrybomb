@@ -1,13 +1,16 @@
 /*
-*   This sass file target the styles for components from App.jsx 
-*/
+ * TODO: Move all the styles to .jsx if its too short
+ */
 
-$background: #282828;
-$foreground: #ebdbbd;
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('Source Sans Pro')
+        url(@assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
+        format('ttf');
+}
 
-body {
-    color: $background;
-    background-color: $foreground;
+.container {
+    flex-wrap: nowrap !important;
 }
 
 .sidebar {
@@ -16,4 +19,10 @@ body {
     flex-grow: 1;
     flex-wrap: nowrap !important;
     z-index: 1;
+}
+
+.sidepanel {
+    height: 100vh !important;
+    flex-grow: 1;
+    flex-wrap: nowrap !important;
 }

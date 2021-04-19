@@ -30,7 +30,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif|svg|ttf)$/i,
                 use: ['file-loader'],
             },
         ],
@@ -41,6 +41,7 @@ module.exports = {
         alias: {
             '@src': path.resolve(__dirname, 'src'),
             '@components': path.resolve(__dirname, 'src', 'components'),
+            '@views': path.resolve(__dirname, 'src', 'components', 'views'),
             '@interfaces': path.resolve(__dirname, 'src', 'interfaces'),
             '@redux': path.resolve(__dirname, 'src', 'redux'),
             '@utils': path.resolve(__dirname, 'src', 'utils'),
