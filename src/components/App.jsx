@@ -29,7 +29,7 @@ class App extends Component {
         };
 
         const mousemove = (event) => {
-            let width = (event.clientX - prev) / 16;
+            let width = event.clientX - prev;
             prev = event.clientX;
             this.props.handleResize(width);
         };

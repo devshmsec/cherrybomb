@@ -21,7 +21,7 @@ export default function SidePanel() {
     const drawerWidth = useSelector((state) => state.resize.value);
     const useStyles = makeStyles((theme) => ({
         root: {
-            width: theme.spacing(drawerWidth),
+            width: drawerWidth,
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',

@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
     palette: {
-        // type: 'dark',
+        type: 'light',
         common: {
             black: '#282828',
             white: '#ebdbbd',
@@ -40,7 +40,7 @@ const theme = createMuiTheme({
     },
     typography: {
         fontFamily:
-            "'Source Sans Pro', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+            "'Source Sans Pro', 'Lato', 'Roboto', 'Helvetica', 'Arial', sans-serif",
     },
 });
 
