@@ -6,6 +6,7 @@ import { handleResize } from '@src/redux/resizeSlice';
 // Components
 import SideBar from '@components/SideBar';
 import SidePanel from '@components/SidePanel';
+import Editor from '@components/Editor';
 import StatusBar from '@components/StatusBar';
 
 // Styles
@@ -65,7 +66,9 @@ class App extends Component {
                             >
                                 <SidePanel />
                             </Grid>
-                            <Grid className="editor" container item></Grid>
+                            <Grid className="editor" container item>
+                                <Editor />
+                            </Grid>
                         </Grid>
                         <Grid className="statusbar" item>
                             <StatusBar />

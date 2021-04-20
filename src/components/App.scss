@@ -15,8 +15,9 @@
 }
 
 .sidepanel {
+    width: fit-content !important;
     height: 100vh !important;
     flex-grow: 1;
     flex-wrap: nowrap !important;
-    align-items: flex-start;
+    align-items: stretch;
 }
