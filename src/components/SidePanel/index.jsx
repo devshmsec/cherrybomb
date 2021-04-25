@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import Explore from '@components/views/Explore';
 import Search from '@components/views/Search';
 import Storage from '@components/views/Storage';
-import Marketplace from '@components/views/Marketplace';
+import Matter from '@src/components/views/Matter';
 import Manage from '@components/views/Manage';
 
 // styles
@@ -21,7 +21,7 @@ export default function SidePanel() {
     const drawerWidth = useSelector((state) => state.resize.value);
     const useStyles = makeStyles((theme) => ({
         root: {
-            width: drawerWidth,
+            width: `${drawerWidth}px`,
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',
@@ -36,7 +36,7 @@ export default function SidePanel() {
                 {selectedTab === 'Explore' && <Explore />}
                 {selectedTab === 'Search' && <Search />}
                 {selectedTab === 'Storage' && <Storage />}
-                {selectedTab === 'Marketplace' && <Marketplace />}
+                {selectedTab === 'Matter' && <Matter />}
                 {selectedTab === 'Settings' && <Manage />}
             </Paper>
             <Divider className="resizer" orientation="vertical" flexItem />

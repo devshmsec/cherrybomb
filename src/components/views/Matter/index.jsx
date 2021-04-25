@@ -5,7 +5,7 @@ import './styles.scss';
 export default function Manage() {
     return (
         <>
-            <Typography variant="h3">Marketplace</Typography>
+            <Typography variant="h3">Matter</Typography>
         </>
     );
 }
