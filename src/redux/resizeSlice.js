@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
     name: 'resize',
     initialState: {
-        value: 300,
+        value: 320,
     },
     reducers: {
         handleResize: (state, action) => {

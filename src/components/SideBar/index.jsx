@@ -44,7 +44,7 @@ export default function SideBar() {
         value === 'Storage' ? <ArchiveFill size={32} /> : <Archive size={32} />;
 
     let ShopIcon =
-        value === 'Matter' ? <BasketFill size={32} /> : <Basket size={32} />;
+        value === 'Extras' ? <BasketFill size={32} /> : <Basket size={32} />;
 
     let GearIcon =
         value === 'Settings' ? <GearFill size={32} /> : <Gear size={32} />;
@@ -64,7 +64,7 @@ export default function SideBar() {
                     <Tab disableRipple icon={FileIcon} value="Explore" />
                     <Tab disableRipple icon={SearchIcon} value="Search" />
                     <Tab disableRipple icon={StorageIcon} value="Storage" />
-                    <Tab disableRipple icon={ShopIcon} value="Matter" />
+                    <Tab disableRipple icon={ShopIcon} value="Extras" />
                     <Tab disableRipple icon={GearIcon} value="Settings" />
                 </Tabs>
             </Paper>

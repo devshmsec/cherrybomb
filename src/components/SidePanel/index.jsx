@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import Explore from '@components/views/Explore';
 import Search from '@components/views/Search';
 import Storage from '@components/views/Storage';
-import Matter from '@src/components/views/Matter';
+import Extras from '@src/components/views/Extras';
 import Manage from '@components/views/Manage';
 
 // styles
@@ -36,7 +36,7 @@ export default function SidePanel() {
                 {selectedTab === 'Explore' && <Explore />}
                 {selectedTab === 'Search' && <Search />}
                 {selectedTab === 'Storage' && <Storage />}
-                {selectedTab === 'Matter' && <Matter />}
+                {selectedTab === 'Extras' && <Extras />}
                 {selectedTab === 'Settings' && <Manage />}
             </Paper>
             <Divider className="resizer" orientation="vertical" flexItem />

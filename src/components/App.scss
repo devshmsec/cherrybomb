@@ -1,7 +1,3 @@
-/*
- * TODO: Move all the styles to .jsx if its too short
- */
-
 .container {
     flex-wrap: nowrap !important;
 }
@@ -20,4 +16,18 @@
     flex-grow: 1;
     flex-wrap: nowrap !important;
     align-items: stretch;
+
+    .MuiAccordion-root {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        box-shadow: none;
+
+        &:not(:last-child) {
+            border-bottom: 0;
+        }
+    }
+
+    .MuiAccordionSummary-root,
+    .MuiAccordionSummary-expandIcon {
+        color: blueviolet;
+    }
 }

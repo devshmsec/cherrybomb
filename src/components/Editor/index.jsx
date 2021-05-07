@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import { Paper } from '@material-ui/core';
 import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from 'draft-js';
 import ToolBar from './ToolBar';
+import LineNumber from './LineNumber';
 
 // styles
 import 'draft-js/dist/Draft.css';
@@ -13,11 +14,12 @@ export default class WysiwygEditor extends Component {
         super(props);
         this.state = { editorState: EditorState.createEmpty() };
         this.onChange = (editorState) => this.setState({ editorState });
-
+        this.editorRef = React.createRef();
         this.handleKeyCommand = this._handleKeyCommand.bind(this);
         this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
         this.toggleBlockType = this._toggleBlockType.bind(this);
         this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
+        this.blockRendererFn = this._blockRendererFn.bind(this);
     }
 
     _handleKeyCommand(command, editorState) {
@@ -56,21 +58,29 @@ export default class WysiwygEditor extends Component {
         );
     }
 
+    _blockRendererFn(contentBlock) {
+        const type = contentBlock.getType();
+        switch (type) {
+            default:
+                return { component: LineNumber, editable: true };
+        }
+    }
+
     render() {
         const { editorState } = this.state;
         return (
             <>
                 <Paper variant="outlined" square>
                     <ToolBar />
-
                     <Editor
                         editorState={editorState}
                         handleKeyCommand={this.handleKeyCommand}
                         keyBindingFn={this.mapKeyToEditorCommand}
                         onChange={this.onChange}
-                        placeholder="Tell a story..."
-                        ref="editor"
+                        // placeholder="Tell a story..."
+                        ref={this.editorRef}
                         spellCheck={true}
+                        // blockRendererFn={this.blockRendererFn}
                     />
                 </Paper>
             </>

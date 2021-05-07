@@ -16,6 +16,14 @@ const useStyles = makeStyles({
 export default function FileExplore() {
     const classes = useStyles();
 
+    const renderTree = (nodes) => {
+        <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.value}>
+            {Array.isArray(nodes.children)
+                ? nodes.children.map((node) => renderTree(node))
+                : null}
+        </TreeItem>;
+    };
+
     return (
         <TreeView
             className={classes.root}
