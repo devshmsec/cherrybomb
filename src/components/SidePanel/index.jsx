@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Paper, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,11 +15,9 @@ import Manage from '@components/views/Manage';
 import './styles.scss';
 
 export default function SidePanel() {
-    // @ts-ignore
     const selectedTab = useSelector((state) => state.sidebar.value);
-
-    // @ts-ignore
     const drawerWidth = useSelector((state) => state.resize.value);
+
     const useStyles = makeStyles((theme) => ({
         root: {
             width: `${drawerWidth}px`,

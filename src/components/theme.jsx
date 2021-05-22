@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({

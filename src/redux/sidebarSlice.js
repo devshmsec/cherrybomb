@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
     name: 'sidebar',
     initialState: {
-        value: 'Storage',
+        value: 'Explore',
     },
     reducers: {
         handleTabChange: (state, action) => {

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { RichUtils } from 'draft-js';
+import 'babel-polyfill';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
 import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
@@ -98,10 +100,10 @@ const StyledButtonGroup = withStyles((theme) => ({
 }))(ButtonGroup);
 
 export default function ToolBar(props) {
-    const [alignment, setAlignment] = React.useState('left');
-    const [formats, setFormats] = React.useState(() => []);
-    const [listFormat, setListFormat] = React.useState('');
-    const [blockFormat, setBlockFormat] = React.useState('Normal');
+    const [alignment, setAlignment] = useState('left');
+    const [formats, setFormats] = useState(() => []);
+    const [listFormat, setListFormat] = useState('');
+    const [blockFormat, setBlockFormat] = useState('Normal');
 
     const handleBlockFormat = (event) => {
         setBlockFormat(event.target.value);
@@ -112,8 +114,10 @@ export default function ToolBar(props) {
     };
 
     const handleFormat = (event, newFormats) => {
-        console.log(formats);
         setFormats(newFormats);
+        event.preventDefault();
+        props.onChange(RichUtils.toggleInlineStyle(props.state, 'BOLD'));
+        console.log(props.state, props.onChange);
     };
 
     const handleAlignment = (event, newAlignment) => {
@@ -136,17 +140,17 @@ export default function ToolBar(props) {
                     onChange={handleFormat}
                     aria-label="text formatting"
                 >
-                    <ToggleButton value="bold" aria-label="bold">
+                    <ToggleButton value="BOLD" aria-label="bold">
                         <FormatBoldIcon />
                     </ToggleButton>
-                    <ToggleButton value="italic" aria-label="italic">
+                    <ToggleButton value="ITALIC" aria-label="italic">
                         <FormatItalicIcon />
                     </ToggleButton>
-                    <ToggleButton value="underlined" aria-label="underlined">
+                    <ToggleButton value="UNDERLINE" aria-label="underlined">
                         <FormatUnderlinedIcon />
                     </ToggleButton>
                     <ToggleButton
-                        value="strikethrough"
+                        value="STRIKETHROUGH"
                         aria-label="strikethrough"
                     >
                         <StrikethroughSIcon />

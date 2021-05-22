@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Paper,
     Accordion,
@@ -12,6 +12,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { ClipboardCheck } from 'react-bootstrap-icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import firebase from '@utils/firebase';
 import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'left',
+        marginBottom: theme.spacing(3),
     },
     input: {
         margin: theme.spacing(0),
@@ -48,6 +50,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Storage() {
     const classes = useStyles();
+    const [file, setFile] = useState(null);
+    const [name, setName] = useState(null);
+
+    const handleName = (event) => {
+        setName(event.target.value);
+    };
+
+    const handleFile = (event) => {
+        setFile(event.target.files[0]);
+    };
+
     return (
         <>
             <Accordion defaultExpanded square>
@@ -63,6 +76,7 @@ export default function Storage() {
                         <InputBase
                             className={classes.input}
                             placeholder="Filename"
+                            onChange={handleName}
                         />
 
                         <ButtonGroup

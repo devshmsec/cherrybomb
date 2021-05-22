@@ -20,6 +20,7 @@ export default class WysiwygEditor extends Component {
         this.toggleBlockType = this._toggleBlockType.bind(this);
         this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
         this.blockRendererFn = this._blockRendererFn.bind(this);
+        this.blockStyleFn = this._blockStyleFn.bind(this);
     }
 
     _handleKeyCommand(command, editorState) {
@@ -62,25 +63,37 @@ export default class WysiwygEditor extends Component {
         const type = contentBlock.getType();
         switch (type) {
             default:
-                return { component: LineNumber, editable: true };
+                return {
+                    component: LineNumber,
+                    editable: true,
+                };
+        }
+    }
+
+    _blockStyleFn(contentBlock) {
+        const type = contentBlock.getType();
+        if (type === '') {
+            return 'normal';
         }
     }
 
     render() {
         const { editorState } = this.state;
+
         return (
             <>
                 <Paper variant="outlined" square>
-                    <ToolBar />
+                    <ToolBar state={editorState} onChange={this.onChange} />
                     <Editor
                         editorState={editorState}
                         handleKeyCommand={this.handleKeyCommand}
                         keyBindingFn={this.mapKeyToEditorCommand}
+                        blockStyleFn={this.blockStyleFn}
                         onChange={this.onChange}
-                        // placeholder="Tell a story..."
+                        placeholder="Take a note..."
                         ref={this.editorRef}
                         spellCheck={true}
-                        // blockRendererFn={this.blockRendererFn}
+                        blockRendererFn={this.blockRendererFn}
                     />
                 </Paper>
             </>
